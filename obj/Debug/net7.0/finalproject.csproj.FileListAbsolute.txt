@@ -1,0 +1,8 @@
+C:\Users\brant\Desktop\finalproject\obj\Debug\net7.0\finalproject.csproj.AssemblyReference.cache
+C:\Users\brant\Desktop\finalproject\obj\Debug\net7.0\finalproject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\brant\Desktop\finalproject\obj\Debug\net7.0\finalproject.AssemblyInfoInputs.cache
+C:\Users\brant\Desktop\finalproject\obj\Debug\net7.0\finalproject.AssemblyInfo.cs
+C:\Users\brant\Desktop\finalproject\obj\Debug\net7.0\finalproject.csproj.CoreCompileInputs.cache
+C:\Users\brant\Desktop\finalproject\obj\Debug\net7.0\finalproject.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\brant\Desktop\finalproject\obj\Debug\net7.0\finalproject.RazorAssemblyInfo.cache
+C:\Users\brant\Desktop\finalproject\obj\Debug\net7.0\finalproject.RazorAssemblyInfo.cs

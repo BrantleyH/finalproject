@@ -1,0 +1,87 @@
+@page
+@model finalproject.Pages.BaseballCards.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @{
+                    var firstSort ="first_asc";
+                    if (Model.CurrentSort == "first_asc")
+                    {
+                        firstSort = "first_desc";
+                    }
+                }
+                <a asp-page="./Index" asp-route-CurrentSort="@firstSort">@Html.DisplayNameFor(model => model.BaseballCard[0].Name)</a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BaseballCard[0].CardPackage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BaseballCard[0].CardType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BaseballCard[0].CardNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BaseballCard[0].CardCondition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BaseballCard[0].Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.BaseballCard) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CardPackage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CardType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CardNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CardCondition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.BaseballCardID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.BaseballCardID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.BaseballCardID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<hr />
+@{
+    var prevDisabled="";
+    if (Model.PageNum <= 1)
+    {
+        prevDisabled = "disabled";
+    }
+}
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <li class="page-item @prevDisabled"><a class="page-link" asp-page="Index" asp-route-PageNum="@(Model.PageNum - 1)">Previous</a></li>
+        <li class="page-item"><a class="page-link" asp-page="Index" asp-route-PageNum="@(Model.PageNum + 1)">Next</a></li>
+    </ul>
+</nav>

@@ -1,0 +1,70 @@
+@page
+@model finalproject.Pages.BaseballCards.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>BaseballCard</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BaseballCard.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BaseballCard.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BaseballCard.CardPackage)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BaseballCard.CardPackage)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BaseballCard.CardType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BaseballCard.CardType)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BaseballCard.CardNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BaseballCard.CardNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BaseballCard.CardCondition)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BaseballCard.CardCondition)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BaseballCard.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BaseballCard.Price)
+        </dd>
+        @foreach(var r in Model.BaseballCard.Owners)
+        {
+             <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => r.Ownership)
+        </dt>
+        <dd class="col-sm-1">
+            @Html.DisplayFor(model => r.Ownership)
+        </dd>
+        <dt class="col-sm-9">
+                <form method="post">
+                    <input type="hidden" asp-for="OwnerIDToDelete" value="@r.OwnerID" />
+                    <input type="submit" asp-page-handler="DeleteOwner" asp-route-id="@Model.BaseballCard.BaseballCardID" value="Delete Owner" class="btn btn-danger btn-sm" />
+                </form>
+            </dt>
+        }
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.BaseballCard?.BaseballCardID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
